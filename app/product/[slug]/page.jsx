@@ -11,7 +11,7 @@ import {getProductBySlug} from "@/lib/api";
 const SingleProductPage = async ({params}) => {
     const {slug} = await params;
     const product = await getProductBySlug(slug);
-    console.log(product);
+
 
     if (!product) {
         return <div>Product not found</div>;
@@ -61,9 +61,11 @@ const SingleProductPage = async ({params}) => {
                         From ${firstPrice || 'Price not available'}
                     </p>
 
-                    <SingleProductSizeChooser sizes={packageSizes} packages={packages}/>
+
 
                     <ProductAddToCartClient
+                        packages={packages}
+                        packageSizes={packageSizes}
                         product={{
                             id: product.sys.id,
                             name: product.fields.title,

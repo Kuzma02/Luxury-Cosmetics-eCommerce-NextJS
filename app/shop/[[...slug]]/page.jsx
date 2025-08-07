@@ -12,8 +12,6 @@ const ShopPage = async ({
 
     sort = sort === undefined ? "default" : sort;
 
-    console.log(products)
-
     return (
         <div className="flex flex-col items-center max-w-screen-2xl mx-auto mt-16">
             <div className="px-10 max-[500px]:px-5 text-center">
@@ -36,7 +34,7 @@ const ShopPage = async ({
 
             </div>
 
-            <ProductGrid sort={sort} products={products} />
+            <ProductGrid sort={sort} products={products}/>
         </div>
     );
 };

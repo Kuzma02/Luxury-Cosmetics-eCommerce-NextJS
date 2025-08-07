@@ -1,14 +1,14 @@
 "use client";
-import {useState} from "react";
 
-const SingleProductSizeChooser = ({sizes, packages, onSizeChange}) => {
-    const [selectedSize, setSelectedSize] = useState(sizes[0] || "");
+const SingleProductSizeChooser = ({sizes, packages, onSizeChange, selectedSize, setSelectedSize}) => {
+
     const selectWhiteColor = "bg-white text-blackPrimary";
     const selectBlackColor = "bg-blackPrimary text-white";
 
     const handleSizeSelect = (size) => {
         setSelectedSize(size);
         onSizeChange?.(size, packages[size]);
+
     };
 
     return (

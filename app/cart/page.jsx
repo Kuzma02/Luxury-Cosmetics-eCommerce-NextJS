@@ -5,12 +5,25 @@ import {HiXMark} from "react-icons/hi2";
 import {useProductStore} from "../_zustand/store";
 import {ProductCartItemQuantity} from "@/components";
 import Image from "next/image";
+import {useMemo} from "react";
 
 const CartPage = () => {
-    const {products, total} = useProductStore(
-        (state) => ({products: state.products, total: state.total})
-    );
-    const {removeFromCart, calculateTotals} = useProductStore();
+    // Use separate selectors to avoid creating new objects on each render
+    const products = useProductStore((state) => state.products);
+    const total = useProductStore((state) => state.total);
+    const removeFromCart = useProductStore((state) => state.removeFromCart);
+    const calculateTotals = useProductStore((state) => state.calculateTotals);
+
+    // Memoize the subtotal calculation
+    const subtotal = useMemo(() => {
+        return products.reduce((sum, product) => sum + (product.package * product.quantity), 0);
+    }, [products]);
+
+    const shipping = 5.00;
+    const tax = subtotal * 0.2 // 20% tax
+    const orderTotal = subtotal + shipping + tax;
+
+    console.log(products)
 
     return (
         <div className="bg-primary">
@@ -28,8 +41,9 @@ const CartPage = () => {
                             role="list"
                             className="divide-y divide-gray-200 border-b border-t border-gray-200"
                         >
-                            {products.map((product) => (
-                                <li key={product?.id} className="flex py-6 sm:py-10">
+                            {products.map((product) => {
+                                console.log(product)
+                                return (<li key={product?.id} className="flex py-6 sm:py-10">
                                     <div className="flex-shrink-0">
                                         <Image
                                             src={`${product?.image}`}
@@ -51,13 +65,13 @@ const CartPage = () => {
                                                 <div className="mt-1 flex text-sm">
                                                     <p className="text-blackPrimary">{product?.size}</p>
                                                     {1 ? (
-                                                        <p className="ml-4 border-l border-gray-200 pl-4 text-blackPrimary">
+                                                        <p className="border-l border-gray-200 text-blackPrimary">
                                                             {product?.quantity} in cart
                                                         </p>
                                                     ) : null}
                                                 </div>
                                                 <p className="mt-1 text-sm font-medium text-blackPrimary">
-                                                    ${product.price}
+                                                    ${product.package}
                                                 </p>
                                             </div>
 
@@ -100,7 +114,7 @@ const CartPage = () => {
                                         </p>
                                     </div>
                                 </li>
-                            ))}
+                                )})}
                         </ul>
                     </section>
 
@@ -120,7 +134,7 @@ const CartPage = () => {
                             <div className="flex items-center justify-between">
                                 <dt className="text-sm text-blackPrimary">Subtotal</dt>
                                 <dd className="text-sm font-medium text-blackPrimary">
-                                    $99.00
+                                    ${total}
                                 </dd>
                             </div>
                             <div className="flex items-center justify-between border-t border-gray-200 pt-4">
@@ -154,14 +168,14 @@ const CartPage = () => {
                                         />
                                     </a>
                                 </dt>
-                                <dd className="text-sm font-medium text-blackPrimary">$8.32</dd>
+                                <dd className="text-sm font-medium text-blackPrimary">${tax}</dd>
                             </div>
                             <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                                 <dt className="text-base font-medium text-blackPrimary">
                                     Order total
                                 </dt>
                                 <dd className="text-base font-medium text-blackPrimary">
-                                    ${total}
+                                    ${orderTotal}
                                 </dd>
                             </div>
                         </dl>

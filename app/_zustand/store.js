@@ -48,8 +48,9 @@ export const useProductStore = create()(
                     let amount = 0;
                     let total = 0;
                     state.products.forEach((item) => {
+                        console.log(item);
                         amount += item.quantity;
-                        total += item.quantity * item.price;
+                        total += item.quantity * item.package;
                     });
 
                     return {
