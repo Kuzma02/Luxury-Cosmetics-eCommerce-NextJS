@@ -2,6 +2,7 @@
 import {useState} from "react";
 import {HiCheck, HiTrash} from "react-icons/hi";
 import {useProductStore} from "@/app/_zustand/store";
+import {useRouter} from "next/navigation";
 
 const deliveryMethods = [
     {
@@ -27,6 +28,7 @@ const CheckoutPage = () => {
     const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState(
         deliveryMethods[0]
     );
+    const router = useRouter();
 
     // Use separate calls instead of returning an object
     const products = useProductStore((state) => state.products);
@@ -65,20 +67,15 @@ const CheckoutPage = () => {
             deliveryMethod: selectedDeliveryMethod.title,
         };
 
-        const response = await fetch("http://localhost:3001/orders", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            credentials: "include",
-            body: JSON.stringify(order),
-        });
 
-        if (response.ok) {
-            alert("Order placed successfully");
-        } else {
-            alert("Order failed");
+        if(!data["email-address"] || !data["first-name"] || !data["last-name"] || !data["address"] || !data["city"] || !data["country"]) {
+            alert("Please fill in all required fields.");
+            return;
         }
+
+    //     Success
+        router.push("/thank-you");
+
     }
 
     const shipping = 5.00;

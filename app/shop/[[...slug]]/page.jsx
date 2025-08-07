@@ -1,40 +1,28 @@
-import {ProductGrid, SortInput} from "@/components";
+import {ProductGrid} from "@/components";
 import {getAllProducts} from "@/lib/api";
 
-const ShopPage = async ({
-                            params,
-                            searchParams
-                        }) => {
+const ShopPage = async () => {
 
 
-    let {sort} = await searchParams;
     const products = await getAllProducts()
 
-    sort = sort === undefined ? "default" : sort;
 
     return (
         <div className="flex flex-col items-center max-w-screen-2xl mx-auto mt-16">
             <div className="px-10 max-[500px]:px-5 text-center">
                 <h1 className="capitalize font-light text-5xl text-blackPrimary max-[500px]:text-4xl max-[400px]:text-3xl">
-                    Luxury perfumes
+                    Shop Luxury Perfumes
                 </h1>
                 <p className="text-2xl font-light text-blackPrimary leading-8 mt-8 mb-16 max-[500px]:text-lg max-[400px]:text-sm">
-                    Indulge in the art of sophisticated fragrance with our exclusive
-                    selection of luxury perfumes. Each scent is a masterpiece, crafted
-                    with the finest ingredients to evoke elegance and timeless allure. Our
-                    curated collection features renowned brands and artisanal creations,
-                    ensuring that you find a signature scent that resonates with your
-                    unique style. From floral bouquets to oriental spices, every bottle
-                    tells a story of opulence and refinement.
+                    Discover our exquisite collection of luxury perfumes, crafted with the finest ingredients to elevate
+                    your senses. Each fragrance tells a unique story, designed to captivate and enchant. Explore our
+                    range and find your signature scent today.
                 </p>
-                <div className="flex items-center justify-center pb-10 pl-6">
-                    <SortInput initialSort={sort}/>
-                </div>
 
 
             </div>
 
-            <ProductGrid sort={sort} products={products}/>
+            <ProductGrid products={products}/>
         </div>
     );
 };
