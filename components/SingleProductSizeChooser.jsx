@@ -21,7 +21,7 @@ const SingleProductSizeChooser = ({sizes, packages, onSizeChange}) => {
                         onClick={() => handleSizeSelect(size)}
                         className={`${
                             size === selectedSize ? selectBlackColor : selectWhiteColor
-                        } py-1 px-10 text-2xl max-[550px]:px-5 max-[550px]:text-xl max-[350px]:text-lg max-[350px]:px-3 cursor-pointer`}
+                        } py-1 px-10 text-xl max-[550px]:px-5 max-sm:text-base max-[350px]:px-3 cursor-pointer`}
                     >
                         {size} - ${packages[size]}
                     </button>
