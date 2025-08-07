@@ -1,12 +1,18 @@
 import {ProductGrid, SortInput} from "@/components";
+import {getAllProducts} from "@/lib/api";
 
 const ShopPage = async ({
                             params,
                             searchParams
                         }) => {
+
+
     let {sort} = await searchParams;
+    const products = await getAllProducts()
 
     sort = sort === undefined ? "default" : sort;
+
+    console.log(products)
 
     return (
         <div className="flex flex-col items-center max-w-screen-2xl mx-auto mt-16">
@@ -30,7 +36,7 @@ const ShopPage = async ({
 
             </div>
 
-            <ProductGrid sort={sort}/>
+            <ProductGrid sort={sort} products={products} />
         </div>
     );
 };

@@ -6,34 +6,40 @@ import ProductAddToCartClient from "@/components/ProductAddToCartClient";
 import Image from "next/image";
 import React from "react";
 import {HiMiniStar} from "react-icons/hi2";
+import {getProductBySlug} from "@/lib/api";
 
 const SingleProductPage = async ({params}) => {
-    const productParams = await params;
+    const {slug} = await params;
+    const product = await getProductBySlug(slug);
+    console.log(product);
 
-    const data = await fetch(
-        `http://localhost:3000/api/products/${productParams.slug}`
-    );
+    if (!product) {
+        return <div>Product not found</div>;
+    }
 
-    let product = await data.json();
+    // Get packages and the first price for display
+    const packages = product.fields.packages || {};
+    const packageSizes = Object.keys(packages);
+    const firstPrice = packageSizes.length > 0 ? packages[packageSizes[0]] : null;
 
     return (
         <div>
             <div
                 className="flex justify-around items-center py-16 gap-10 px-10 max-xl:flex-col max-[450px]:px-5 max-sm:py-5 max-[450px]:gap-5">
                 <Image
-                    src={`${product?.image}`}
+                    src={`https:${product.fields.mainImage.fields.file.url}`}
                     width={700}
                     height={500}
-                    alt="Product demo image"
+                    alt={product.fields.title}
                     className="w-full max-w-[700px] h-auto"
                 />
                 <div className="max-w-[700px]">
                     <div className="flex flex-col gap-4 max-[450px]:gap-2">
                         <p className="text-2xl font-light max-sm:text-xl max-[450px]:text-lg">
-                            {product?.category}
+                            Cosmetics
                         </p>
                         <h1 className="text-5xl font-light max-sm:text-4xl max-[450px]:text-3xl">
-                            {product?.name}
+                            {product.fields.title}
                         </h1>
                     </div>
                     <div className="mt-8 flex items-center gap-3 max-sm:mt-4">
@@ -45,32 +51,29 @@ const SingleProductPage = async ({params}) => {
                             <HiMiniStar className="text-blackPrimary text-3xl max-[450px]:text-xl max-sm:text-2xl"/>
                         </div>
                         <p className="text-xl font-normal max-sm:text-lg max-[450px]:text-base">
-                            {product?.numReviews} reviews
+                            125 reviews
                         </p>
                     </div>
                     <p className="text-lg font-light my-8 max-sm:text-base max-[450px]:text-sm max-sm:my-4">
-                        Indulge in the captivating allure of "Luxury Perfume Rose," a
-                        sophisticated fragrance that embodies elegance and timeless beauty.
-                        This exquisite perfume features the rich, velvety scent of blooming
-                        roses, expertly blended with subtle notes of fresh citrus and warm
-                        amber.
+                        {product.fields.shortDescription}
                     </p>
                     <p className="text-3xl font-normal mb-8 max-sm:text-2xl max-sm:mb-4">
-                        ${product?.price}
+                        From ${firstPrice || 'Price not available'}
                     </p>
 
-                    <SingleProductSizeChooser sizes={product?.sizes}/>
+                    <SingleProductSizeChooser sizes={packageSizes} packages={packages}/>
 
                     <ProductAddToCartClient
                         product={{
-                            id: product?._id,
-                            name: product?.name,
-                            price: product?.price,
-                            image: product?.image,
-                            brand: product?.brand,
-                            category: product?.category,
+                            id: product.sys.id,
+                            name: product.fields.title,
+                            price: firstPrice || 0,
+                            image: `https:${product.fields.mainImage.fields.file.url}`,
+                            brand: "Cosmetics",
+                            category: "Cosmetics",
                             quantity: 1,
-                            size: "",
+                            size: packageSizes[0] || "",
+                            packages: packages,
                         }}
                     />
                 </div>
@@ -83,7 +86,7 @@ const SingleProductPage = async ({params}) => {
                         Description
                     </h2>
                     <p className="font-light text-lg mt-8 max-sm:text-base max-[450px]:text-sm">
-                        {product?.description}
+                        {product.fields.longDescription}
                     </p>
                 </div>
             </div>

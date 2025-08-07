@@ -6,8 +6,11 @@ import {
     StatsSection,
     WhySection
 } from "@/components";
+import {getAllProducts} from "@/lib/api";
 
-export default function Home() {
+export default async function Home() {
+    const products = await getAllProducts()
+
     return (
         <>
             <Banner/>
@@ -24,7 +27,7 @@ export default function Home() {
                 imageWidth={688}
                 imageHeight={688}
             />
-            <BestSellingSection/>
+            <BestSellingSection products={products} />
             <WhySection/>
             <ArtOfLuxurySkincareSection/>
             <MovingSection/>

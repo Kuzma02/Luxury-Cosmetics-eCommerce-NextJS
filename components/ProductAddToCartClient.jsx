@@ -4,7 +4,7 @@ import { useState } from "react";
 import AddToCartBtn from "./AddToCartBtn";
 import SingleProductQuantityInput from "./SingleProductQuantityInput";
 
-const ProductAddToCartClient = ({ product }: { product: ProductInCart }) => {
+const ProductAddToCartClient = ({ product }) => {
     const [quantity, setQuantity] = useState(1);
     return (
         <div>
