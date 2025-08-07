@@ -5,7 +5,7 @@ const Header = () => {
         <>
             <HeaderMain />
             <HeaderMainMobile />
-            <Nav />
+
         </>
     );
 };

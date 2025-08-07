@@ -8,7 +8,7 @@ import MasterCardIcon from "../public/Mastercard.svg";
 const FooterBottom = () => {
     return (
         <div>
-            <div className="border-t border-blackPrimary border-1 flex justify-center items-center gap-5 py-10 max-[1000px]:mt-10 max-[500px]:gap-2 max-[500px]:flex-wrap">
+            <div className="border-t border-blackPrimary flex justify-center items-center gap-5 py-10 max-[1000px]:mt-10 max-[500px]:gap-2 max-[500px]:flex-wrap">
                 <Image
                     src={VisaIcon}
                     alt="Master card icon"

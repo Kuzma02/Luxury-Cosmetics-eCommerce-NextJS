@@ -4,7 +4,6 @@ import {HiChevronDown} from "react-icons/hi";
 import EngLanguage from "../public/eng language.png";
 import Link from "next/link";
 import CartHeaderElement from "@/components/CartHeaderElement";
-import {LogoutButton} from "@/components/index";
 
 const HeaderMainMobile = async () => {
 
@@ -19,18 +18,43 @@ const HeaderMainMobile = async () => {
                 </div>
 
                 <div className="flex gap-x-5 text-xl items-center max-md:text-base">
-                    {true ?
-                        <div className="flex gap-x-5"><LogoutButton/><Link href={"/my-account"}>Account</Link></div> :
-                        (<div className="flex gap-x-5"><Link href={"/login"}>Login</Link><Link
-                            href={"/register"}>Register</Link></div>)}
                     <CartHeaderElement/>
                 </div>
             </div>
 
-            <div className="bg-primary h-[120px] flex justify-center items-center">
+            <div className="bg-primary h-[150px] flex flex-col gap-5 justify-center items-center">
                 <Link href={"/"}>
                     <h2 className="text-blackPrimary text-3xl font-[400]">COSMETICS</h2>
                 </Link>
+
+                <div className="flex gap-5">
+                    <Link
+                        href="/"
+                        className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
+                    >
+                        Home
+                    </Link>
+
+                    <Link
+                        href="/shop"
+                        className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
+                    >
+                        Shop
+                    </Link>
+
+                    <Link
+                        href="/about"
+                        className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
+                    >
+                        About Us
+                    </Link>
+                    <Link
+                        href="/about"
+                        className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
+                    >
+                        Contact Us
+                    </Link>
+                </div>
             </div>
         </header>
     );

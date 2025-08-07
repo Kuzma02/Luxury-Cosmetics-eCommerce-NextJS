@@ -38,14 +38,6 @@ const Nav = () => {
                             href="/about"
                             className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
                         >
-                            Categories
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/about"
-                            className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
-                        >
                             About Us
                         </Link>
                     </li>
@@ -79,14 +71,6 @@ const Nav = () => {
                                 className="text-blackPrimary text-xl font-[400]"
                             >
                                 Shop
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/about"
-                                className="text-blackPrimary text-xl font-[400]"
-                            >
-                                Categories
                             </Link>
                         </li>
                         <li>

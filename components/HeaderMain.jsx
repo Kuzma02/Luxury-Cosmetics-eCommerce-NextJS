@@ -3,25 +3,53 @@ import {HiChevronDown} from "react-icons/hi";
 import Image from "next/image";
 import Link from "next/link";
 import CartHeaderElement from "./CartHeaderElement";
-import {LogoutButton} from "@/components/index";
 
 const HeaderMain = async () => {
 
     return (
-        <header className="bg-primary h-[120px] flex justify-center items-center px-10 max-md:hidden max-[500px]:px-5">
-            <div className="mr-auto flex items-center gap-x-2">
+        <header
+            className="bg-primary text-center h-[170px] max-w-7xl mx-auto flex justify-center items-center px-10 max-md:hidden max-[500px]:px-5">
+            <div className="flex items-center gap-x-2">
                 <Image src={EngLanguage} alt="english flag" className="w-9"/>
                 <p className="text-blackPrimary">EN</p>
                 <HiChevronDown className="text-blackPrimary text-2xl"/>
             </div>
-            <Link href="/">
-                <h2 className="text-blackPrimary text-4xl font-[400]">COSMETICS</h2>
-            </Link>
-            <div className="ml-auto flex gap-x-5 text-xl">
-                {true ?
-                    <div className="flex gap-x-5"><LogoutButton/><Link href={"/my-account"}>Account</Link></div> :
-                    (<div className="flex gap-x-5"><Link href={"/login"}>Login</Link><Link href={"/register"}>Register</Link></div>)}
 
+            <div className="flex-1 flex justify-center flex-col items-center gap-6">
+                <Link href="/" className="text-blackPrimary text-4xl font-[400]">COSMETICS</Link>
+
+                <div className="flex gap-5">
+                    <Link
+                        href="/"
+                        className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
+                    >
+                        Home
+                    </Link>
+
+                    <Link
+                        href="/shop"
+                        className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
+                    >
+                        Shop
+                    </Link>
+
+                    <Link
+                        href="/about"
+                        className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
+                    >
+                        About Us
+                    </Link>
+                    <Link
+                        href="/about"
+                        className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
+                    >
+                        Contact Us
+                    </Link>
+                </div>
+            </div>
+
+
+            <div className="ml-auto flex gap-x-5 text-xl flex justify-center items-center">
 
 
                 <CartHeaderElement/>
