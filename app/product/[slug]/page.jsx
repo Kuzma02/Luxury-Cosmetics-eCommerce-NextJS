@@ -6,11 +6,12 @@ import ProductAddToCartClient from "@/components/ProductAddToCartClient";
 import Image from "next/image";
 import React from "react";
 import {HiMiniStar} from "react-icons/hi2";
-import {getProductBySlug} from "@/lib/api";
+import {getAllProducts, getProductBySlug} from "@/lib/api";
 
 const SingleProductPage = async ({params}) => {
     const {slug} = await params;
     const product = await getProductBySlug(slug);
+    const products = await getAllProducts();
 
 
     if (!product) {
@@ -97,7 +98,7 @@ const SingleProductPage = async ({params}) => {
                 <h2 className="text-5xl font-light text-center mb-24 max-sm:text-4xl max-sm:mb-12">
                     Similar Products
                 </h2>
-                <ProductGrid/>
+                <ProductGrid products={products.slice(3)} />
             </div>
         </div>
     );

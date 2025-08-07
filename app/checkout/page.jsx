@@ -68,12 +68,12 @@ const CheckoutPage = () => {
         };
 
 
-        if(!data["email-address"] || !data["first-name"] || !data["last-name"] || !data["address"] || !data["city"] || !data["country"]) {
+        if (!data["email-address"] || !data["first-name"] || !data["last-name"] || !data["address"] || !data["city"] || !data["country"]) {
             alert("Please fill in all required fields.");
             return;
         }
 
-    //     Success
+        //     Success
         router.push("/thank-you");
 
     }
