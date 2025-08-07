@@ -3,14 +3,9 @@
 import Image from "next/image";
 import CustomChevronDown from "../public/chevron down 3.svg";
 import CustomChevronUp from "../public/chevron up 3.svg";
-import { useState } from "react";
 
-interface SingleProductQuantityInputProps {
-    quantity: number;
-    setQuantity: (quantity: number) => void;
-}
 
-const SingleProductQuantityInput = ({ quantity, setQuantity }: SingleProductQuantityInputProps) => {
+const SingleProductQuantityInput = ({ quantity, setQuantity }) => {
 
     return (
         <div className="flex h-10">
