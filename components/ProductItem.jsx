@@ -4,7 +4,9 @@ import { Button } from "@/components/index";
 import Link from "next/link";
 
 const ProductItem = ({ product }) => {
-    const firstPackage = product.fields.packages?.length > 0 ? product.fields.packages[0] : null;
+    const packagesObject = product.fields.packages;
+    const firstPropertyKey = packagesObject ? Object.keys(packagesObject)[0] : null;
+    const firstPropertyValue = packagesObject ? packagesObject[firstPropertyKey] : null;
 
     return (
         <div className="flex flex-col justify-center text-blackPrimary text-center px-5">
@@ -28,7 +30,7 @@ const ProductItem = ({ product }) => {
                     <p className="text-xl font-normal max-[450px]:text-lg">125 reviews</p>
                 </div>
                 <p className="font-bold text-xl max-[450px]:text-lg">
-                    {firstPackage ? `$${firstPackage.fields.price}` : 'Price not available'}
+                   From {firstPropertyKey ? `$${firstPropertyValue}` : 'Price not available'}
                 </p>
                 <div className="flex justify-center">
                     <Link
