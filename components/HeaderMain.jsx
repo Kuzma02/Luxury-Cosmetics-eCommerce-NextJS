@@ -8,7 +8,7 @@ const HeaderMain = async () => {
 
     return (
         <header
-            className="bg-primary text-center h-[170px] max-w-7xl mx-auto flex justify-center items-center px-10 max-md:hidden max-[500px]:px-5">
+            className="bg-primary text-center h-[150px] max-w-7xl mx-auto flex justify-center items-center px-10 max-md:hidden max-[500px]:px-5">
             <div className="flex items-center gap-x-2">
                 <Image src={EngLanguage} alt="english flag" className="w-9"/>
                 <p className="text-blackPrimary">EN</p>

@@ -1,10 +1,10 @@
-import { HeaderMain, HeaderMainMobile, Nav } from "@/components";
+import {HeaderMain, HeaderMainMobile } from "@/components";
 
 const Header = () => {
     return (
         <>
-            <HeaderMain />
-            <HeaderMainMobile />
+            <HeaderMain/>
+            <HeaderMainMobile/>
 
         </>
     );
