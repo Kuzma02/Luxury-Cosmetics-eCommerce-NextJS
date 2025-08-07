@@ -9,10 +9,7 @@ import { useProductStore } from "@/app/_zustand/store";
 const ProductCartItemQuantity = ({
                                      id,
                                      startQuantity,
-                                 }: {
-    id: string;
-    startQuantity: number;
-}) => {
+                                 }) => {
     const [quantity, setQuantity] = useState(startQuantity);
     const { updateCartQuantity, calculateTotals } = useProductStore();
 

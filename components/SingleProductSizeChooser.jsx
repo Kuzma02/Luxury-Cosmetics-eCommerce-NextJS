@@ -4,13 +4,13 @@ import { useSizeStore } from "@/app/_zustand/sizeStore";
 import { nanoid } from "nanoid";
 import { useEffect } from "react";
 
-const SingleProductSizeChooser = ({ sizes }: { sizes: string[] }) => {
+const SingleProductSizeChooser = ({ sizes }) => {
     const { changeSize, size } = useSizeStore();
 
     const selectWhiteColor = "bg-white text-blackPrimary";
     const selectBlackColor = "bg-blackPrimary text-white";
 
-    const handleSizeChange = (size: string) => {
+    const handleSizeChange = (size) => {
         changeSize(size);
     };
 

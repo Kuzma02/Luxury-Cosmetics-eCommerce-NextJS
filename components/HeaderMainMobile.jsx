@@ -4,16 +4,10 @@ import {HiChevronDown} from "react-icons/hi";
 import EngLanguage from "../public/eng language.png";
 import Link from "next/link";
 import CartHeaderElement from "@/components/CartHeaderElement";
-import {auth} from "@/auth";
 import {LogoutButton} from "@/components/index";
 
 const HeaderMainMobile = async () => {
-    const session = await auth();
 
-    const userInfo = {
-        name: session?.user?.name,
-        email: session?.user?.email,
-    };
     return (
         <header className="bg-primary h-auto px-10 pt-5 md:hidden max-[400px]:px-5">
             <div
@@ -25,7 +19,7 @@ const HeaderMainMobile = async () => {
                 </div>
 
                 <div className="flex gap-x-5 text-xl items-center max-md:text-base">
-                    {userInfo?.name ?
+                    {true ?
                         <div className="flex gap-x-5"><LogoutButton/><Link href={"/my-account"}>Account</Link></div> :
                         (<div className="flex gap-x-5"><Link href={"/login"}>Login</Link><Link
                             href={"/register"}>Register</Link></div>)}

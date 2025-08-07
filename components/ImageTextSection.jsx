@@ -9,15 +9,8 @@ const ImageTextSection = ({
                               title,
                               imageWidth,
                               imageHeight,
-                          }: {
-    image: string;
-    mode: string;
-    text: string;
-    title: string;
-    imageWidth: number;
-    imageHeight: number;
-}) => {
-    const widthString: string = `w-[${imageWidth}px]`;
+                          }) => {
+    const widthString = `w-[${imageWidth}px]`;
     return (
         <>
             <div className="flex justify-center items-center px-10 gap-12 h-[700px] max-[1330px]:flex-col max-[1330px]:h-auto max-[1330px]:py-10 max-[500px]:px-5">

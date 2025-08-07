@@ -3,8 +3,8 @@
 import {useRouter} from "next/navigation";
 import {useEffect, useState} from "react";
 
-const SortInput = ({ initialSort }: { initialSort: string }) => {
-    const [sort, setSort] = useState<string>(initialSort);
+const SortInput = ({ initialSort }) => {
+    const [sort, setSort] = useState(initialSort);
     const router = useRouter();
 
     const sortProducts = () => {

@@ -5,7 +5,7 @@ import {HiMenu} from "react-icons/hi";
 import {HiOutlineX} from "react-icons/hi";
 
 const Nav = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
         <nav className="h-24 bg-primary border-t border-blackPrimary border-1 flex items-center justify-center">

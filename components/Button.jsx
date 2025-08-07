@@ -1,4 +1,4 @@
-const Button = ({text, mode}: { text: string; mode?: string }) => {
+const Button = ({text, mode}) => {
     return (
         <>
             {mode === "black" ? (

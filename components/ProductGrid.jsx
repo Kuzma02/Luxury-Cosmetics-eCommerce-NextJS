@@ -1,8 +1,8 @@
 import ProductItem from "@/components/ProductItem";
 
-const ProductGrid = async ({ sort } : { sort: string }) => {
+const ProductGrid = async ({ sort }) => {
     console.log(`http://localhost:3001/products?sort=${sort || "default"}`);
-    const productsAPI: ProductAPI[] = await fetch(`http://localhost:3001/products?order=${sort || "default"}`).then(res => res.json());
+    const productsAPI= await fetch(`http://localhost:3001/products?order=${sort || "default"}`).then(res => res.json());
 
     return (
         <div className="flex justify-center gap-24 flex-wrap max-w-screen-2xl mx-auto max-[450px]:gap-16">

@@ -3,7 +3,7 @@ import { HiMiniStar } from "react-icons/hi2";
 import { Button } from "@/components/index";
 import Link from "next/link";
 
-const ProductItem = ({ product }: { product: ProductAPI }) => {
+const ProductItem = ({ product }) => {
     return (
         <div className="flex flex-col justify-center text-blackPrimary text-center px-5">
             <Image
