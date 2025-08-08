@@ -18,6 +18,10 @@
 
 <img alt="single product cosmetics" src="https://github.com/user-attachments/assets/83087c6e-a7d9-4ed5-aa68-5d9d26806584" />
 
+<img alt="screencapture-luxury-cosmetics-vercel-app-about-us-2025-08-08-10_04_53" src="https://github.com/user-attachments/assets/baf330b8-14bb-4ca4-bef3-c426e4e352df" />
+
+<img alt="screencapture-luxury-cosmetics-vercel-app-contact-2025-08-08-10_05_07" src="https://github.com/user-attachments/assets/a0f14d58-d9c7-4a27-bc49-5898b54bb8f1" />
+
 <img alt="cart cosmetics (2)" src="https://github.com/user-attachments/assets/fbb2b0a8-293a-4d99-b4dc-94cff0ec073c" />
 
 <img alt="screencapture-luxury-cosmetics-vercel-app-checkout-2025-08-07-20_59_55" src="https://github.com/user-attachments/assets/a9494dda-aa88-4295-94a4-b668592a433d" />
