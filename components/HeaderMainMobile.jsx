@@ -30,27 +30,27 @@ const HeaderMainMobile = async () => {
                 <div className="flex gap-5">
                     <Link
                         href="/"
-                        className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
+                        className="text-blackPrimary text-xl font-[400] max-sm:text-base"
                     >
                         Home
                     </Link>
 
                     <Link
                         href="/shop"
-                        className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
+                        className="text-blackPrimary text-xl font-[400] max-sm:text-base"
                     >
                         Shop
                     </Link>
 
                     <Link
-                        href="/about"
-                        className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
+                        href="/about-us"
+                        className="text-blackPrimary text-xl font-[400] max-sm:text-base"
                     >
                         About Us
                     </Link>
                     <Link
                         href="/about"
-                        className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
+                        className="text-blackPrimary text-xl font-[400] max-sm:text-base"
                     >
                         Contact Us
                     </Link>

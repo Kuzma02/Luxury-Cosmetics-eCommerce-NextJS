@@ -34,7 +34,7 @@ const HeaderMain = async () => {
                     </Link>
 
                     <Link
-                        href="/about"
+                        href="/about-us"
                         className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
                     >
                         About Us
