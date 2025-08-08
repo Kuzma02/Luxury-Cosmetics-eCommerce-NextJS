@@ -49,7 +49,7 @@ const HeaderMainMobile = async () => {
                         About Us
                     </Link>
                     <Link
-                        href="/about"
+                        href="/contact"
                         className="text-blackPrimary text-xl font-[400] max-sm:text-base"
                     >
                         Contact Us

@@ -40,7 +40,7 @@ const HeaderMain = async () => {
                         About Us
                     </Link>
                     <Link
-                        href="/about"
+                        href="/contact"
                         className="text-blackPrimary text-xl font-[400] max-[600px]:text-lg"
                     >
                         Contact Us
