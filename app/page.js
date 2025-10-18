@@ -6,15 +6,14 @@ import {
     StatsSection,
     WhySection
 } from "@/components";
-import {getAllProducts} from "@/lib/api";
+import { getAllProducts } from "@/lib/api";
 
 export default async function Home() {
     const products = await getAllProducts()
-
     return (
         <>
-            <Banner/>
-            <StatsSection/>
+            <Banner />
+            <StatsSection />
             <ImageTextSection
                 image="/about section photo.jpg"
                 text="Welcome to the ultimate destination for discerning beauty
@@ -28,9 +27,9 @@ export default async function Home() {
                 imageHeight={688}
             />
             <BestSellingSection products={products} />
-            <WhySection/>
-            <ArtOfLuxurySkincareSection/>
-            <MovingSection/>
+            <WhySection />
+            <ArtOfLuxurySkincareSection />
+            <MovingSection />
             <div className="my-16">
                 <ImageTextSection
                     image="/image text section 2.png"
@@ -45,7 +44,7 @@ promise not only to enhance your natural beauty but also to elevate your skincar
                     imageHeight={588}
                 />
             </div>
-            <FullImageSection/>
+            <FullImageSection />
         </>
     );
 }
